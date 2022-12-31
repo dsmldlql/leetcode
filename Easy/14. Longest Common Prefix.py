@@ -28,3 +28,20 @@ class Solution:
                     return string
             string += letter
         return string
+
+
+# v3
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        shortest_word = min(strs)
+        for word in strs:
+            while shortest_word:
+                if not (shortest_word in word[:len(shortest_word)]):
+                    shortest_word = shortest_word[:-1]
+                    continue
+                break
+        if len(shortest_word) == 0:
+            return ""
+        else:
+            return shortest_word

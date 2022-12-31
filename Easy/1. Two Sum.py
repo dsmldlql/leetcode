@@ -11,10 +11,9 @@ class Solution:
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
-        for i, value in enumerate(nums):
-            remaining = target - nums[i]
-            if remaining in seen:
-                return [i, seen[remaining]]
-            else:
-                seen[value] = i
+        dct = {}
+        for idx, val in enumerate(nums):
+            difference = target - val
+            if difference in dct:
+                return [dct[difference], idx]
+            dct[val] = idx
